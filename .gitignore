@@ -9,6 +9,7 @@
 *.suo
 *.user
 *.sln.docstates
+appsettings.json
 
 # Archivos de caché y registro de Visual Studio
 *.vs/
