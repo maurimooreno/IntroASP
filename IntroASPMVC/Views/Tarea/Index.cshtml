@@ -1,36 +1,38 @@
 ﻿@model List<Tarea>
 
-<h1>Tareas</h1>
-<p>
-    <a asp-action="Crear">Crear</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Descripcion
-            </th>
-            <th>
-                Estado
-            </th>
-            <th>
-                Categoria
-            </th>
-            <th>
-                Usuario
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var tarea in Model)
-        {
-            string nombreCompleto = $"{tarea.Usuario.Apellido} {tarea.Usuario.Nombre}";
+<div class="d-flex flex-column">
+    <h1>Tareas</h1>
+    <p>
+        <a asp-action="Crear">Crear</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>@Html.DisplayFor(t => tarea.Descripcion)</td>
-                <td>@Html.DisplayFor(t => tarea.Estado.Nombre)</td>
-                <td>@Html.DisplayFor(t => tarea.Categoria.Nombre)</td>
-                <td>@Html.DisplayFor(t => nombreCompleto)</td>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Usuario
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var tarea in Model)
+            {
+                string nombreCompleto = $"{tarea.Usuario.Apellido} {tarea.Usuario.Nombre}";
+                <tr>
+                    <td>@Html.DisplayFor(t => tarea.Descripcion)</td>
+                    <td>@Html.DisplayFor(t => tarea.Estado.Nombre)</td>
+                    <td>@Html.DisplayFor(t => tarea.Categoria.Nombre)</td>
+                    <td>@Html.DisplayFor(t => nombreCompleto)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
